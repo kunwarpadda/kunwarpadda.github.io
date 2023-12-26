@@ -24,7 +24,7 @@ export const Hero = () => {
 					</Reveal>
 					<Reveal>
 						<p className={styles.aboutCopy}>
-							Enthusiastic computer science student dedicated to
+							dedicated to
 							continuous skill enhancement. Ready to bring
 							innovation and a passion for technology to
 							collaborative and dynamic work environments.
