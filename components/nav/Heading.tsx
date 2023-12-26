@@ -7,7 +7,7 @@ export const Heading = () => {
 		<header className={styles.heading}>
 			<MyLinks />
 
-			<OutlineButton onClick={() => window.open("/Kunwar-resume.pdf")}>
+			<OutlineButton onClick={() => window.open("/Kunwar-Resume.pdf")}>
 				My resume
 			</OutlineButton>
 		</header>
