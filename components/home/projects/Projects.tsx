@@ -20,7 +20,7 @@ const projects = [
 	{
 		title: "Room Chat",
 		imgSrc: "/project-imgs/RoomChat.png",
-		code: "https://www.github.com/kunwarpadda",
+		code: "https://www.github.com/kunwarpadda/RoomChat",
 		projectLink: "https://k-roomchat.azurewebsites.net",
 		tech: ["Flask", "Socketio", "Javascript", "HTML", "CSS", "MySQL"],
 		description:
