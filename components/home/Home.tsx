@@ -12,7 +12,7 @@ export const Home = () => {
 		<>
 			<div className={styles.home}>
 				<SideBar />
-				<main id="main">
+				<main id="main" className={styles.main}>
 					<Heading />
 					<Hero />
 					<About />

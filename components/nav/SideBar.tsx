@@ -26,7 +26,10 @@ export const SideBar = () => {
 	}, []);
 
 	return (
-		<div style={{ background: "var(--background-dark)" }}>
+		<div
+			style={{ background: "var(--background-dark)" }}
+			className={styles.sideBarLayout}
+		>
 			<motion.nav
 				initial={{ x: -70 }}
 				animate={{ x: 0 }}
