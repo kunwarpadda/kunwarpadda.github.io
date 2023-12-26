@@ -15,13 +15,13 @@ export const About = () => {
 						<p
 							className={`${styles.aboutText} ${styles.highlightFirstLetter}`}
 						>
-							Hello! I'm Kunwarbir Singh Padda, a dedicated BSc
-							Computer Science student aspiring to become a
+							Hello! I&apos;m Kunwarbir Singh Padda, a dedicated
+							BSc Computer Science student aspiring to become a
 							versatile software engineer.
 							<br />
 							<br />
-							In my ongoing journey of skill enhancement, I've
-							delved into various aspects of technology,
+							In my ongoing journey of skill enhancement,
+							I&apos;ve delved into various aspects of technology,
 							showcasing my proficiency in Python, Flask, React,
 							Git, Linux, and Java through projects like a
 							real-time chat app and a robust Todo List
@@ -50,10 +50,10 @@ export const About = () => {
 					</Reveal>
 					<Reveal>
 						<p className={styles.aboutText}>
-							If you're in search of a dynamic collaborator with a
-							strong foundation in both frontend and backend
-							technologies, let's connect and explore the exciting
-							possibilities together! 🚀
+							If you&apos;re in search of a dynamic collaborator
+							with a strong foundation in both frontend and
+							backend technologies, let&apos;s connect and explore
+							the exciting possibilities together! 🚀
 						</p>
 					</Reveal>
 					<Reveal>

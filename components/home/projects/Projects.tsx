@@ -41,7 +41,7 @@ const projects = [
 				</p>
 				<p>
 					<b>Note</b>: Please be aware that I, as the developer, am
-					still working on this application. It's currently under
+					still working on this application. It&apos;s currently under
 					development, so you might encounter some bugs. I appreciate
 					your understanding. Thank you!
 				</p>
