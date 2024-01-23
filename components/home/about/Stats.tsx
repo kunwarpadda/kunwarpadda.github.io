@@ -23,13 +23,37 @@ export const Stats = () => {
 							<span className="chip">CSS</span>
 						</Magnetic>
 						<Magnetic>
-							<span className="chip">React</span>
+							<span className="chip">ReactJS</span>
+						</Magnetic>
+						<Magnetic>
+							<span className="chip">NodeJS</span>
 						</Magnetic>
 						<Magnetic>
 							<span className="chip">Git</span>
 						</Magnetic>
 						<Magnetic>
 							<span className="chip">Python automation</span>
+						</Magnetic>
+						<Magnetic>
+							<span className="chip">Selenium</span>
+						</Magnetic>
+						<Magnetic>
+							<span className="chip">BeautifulSoup</span>
+						</Magnetic>
+						<Magnetic>
+							<span className="chip">Java</span>
+						</Magnetic>
+						<Magnetic>
+							<span className="chip">JUnit</span>
+						</Magnetic>
+						<Magnetic>
+							<span className="chip">C/C++</span>
+						</Magnetic>
+						<Magnetic>
+							<span className="chip">SQL</span>
+						</Magnetic>
+						<Magnetic>
+							<span className="chip">GitHub CD/CI</span>
 						</Magnetic>
 						<Magnetic>
 							<span className="chip">Linux</span>
@@ -51,13 +75,16 @@ export const Stats = () => {
 					</h4>
 					<div className={styles.statGrid}>
 						<Magnetic>
-							<span className="chip">Nextjs</span>
+							<span className="chip">AWS</span>
 						</Magnetic>
 						<Magnetic>
 							<span className="chip">Django</span>
 						</Magnetic>
 						<Magnetic>
-							<span className="chip">ELK Stack</span>
+							<span className="chip">MongoDB</span>
+						</Magnetic>
+						<Magnetic>
+							<span className="chip">ExpressJS</span>
 						</Magnetic>
 					</div>
 				</div>
