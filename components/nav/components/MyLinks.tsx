@@ -18,7 +18,7 @@ export const MyLinks = () => {
 				transition={{ duration: 0.5, delay: 0.0 }}
 			>
 				<Link
-					href="https://www.linkedin.com/in/kunwar-padda-6247b22a6/"
+					href="https://www.linkedin.com/in/kunwarbir-singh-padda"
 					target="_blank"
 					rel="nofollow"
 				>
