@@ -46,7 +46,7 @@ export const MyLinks = () => {
 				transition={{ duration: 0.5, delay: 0.2 }}
 			>
 				<Link
-					href="https://www.instagram.com/__k.s__padda______/"
+					href="https://www.instagram.com/_kunwar.___"
 					target="_blank"
 					rel="nofollow"
 				>

@@ -18,7 +18,7 @@ export const Contact = () => {
 						Have an idea to discuss? Shoot me an email if you want
 						to connect! You can also find me on{" "}
 						<Link
-							href="https://www.linkedin.com/in/kunwar-padda-6247b22a6/"
+							href="https://www.linkedin.com/in/kunwarbir-singh-padda"
 							target="_blank"
 							rel="nofollow"
 						>
@@ -26,7 +26,7 @@ export const Contact = () => {
 						</Link>{" "}
 						or{" "}
 						<Link
-							href="https://www.instagram.com/__k.s__padda______/"
+							href="https://www.instagram.com/_kunwar.___"
 							target="_blank"
 							rel="nofollow"
 						>
