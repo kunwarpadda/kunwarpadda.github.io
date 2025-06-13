@@ -37,7 +37,7 @@ export const About = () => {
 				<Reveal>
 					<div className={styles.intro}>
 						<h2 className={styles.headline}>
-							I'm a <span className={styles.highlight}>full-stack developer</span> passionate about creating 
+							I&apos;m a <span className={styles.highlight}>full-stack developer</span> passionate about creating 
 							performant, user-centered digital experiences that scale.
 						</h2>
 						<p className={styles.description}>
@@ -83,7 +83,7 @@ export const About = () => {
 						<div className={styles.philosophyContent}>
 							<div className={styles.philosophyItem}>
 								<h4>Performance First</h4>
-								<p>Every line of code I write is optimized for speed and efficiency. Users shouldn't wait for great experiences. I focus on creating applications that load fast, respond instantly, and scale seamlessly under pressure.</p>
+								<p>Every line of code I write is optimized for speed and efficiency. Users shouldn&apos;t wait for great experiences. I focus on creating applications that load fast, respond instantly, and scale seamlessly under pressure.</p>
 							</div>
 							<div className={styles.philosophyItem}>
 								<h4>Clean Architecture</h4>

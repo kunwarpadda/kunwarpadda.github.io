@@ -10,12 +10,12 @@ export const Contact = () => {
 			<div className={styles.contactWrapper}>
 				<Reveal>
 					<h4 className={styles.contactTitle}>
-						Let's work together<span>.</span>
+						Let&apos;s work together<span>.</span>
 					</h4>
 				</Reveal>
 				<Reveal>
 					<p className={styles.contactCopy}>
-						Ready to bring your ideas to life? Drop me a line and let's discuss your project.
+						Ready to bring your ideas to life? Drop me a line and let&apos;s discuss your project.
 					</p>
 				</Reveal>
 				<Reveal>

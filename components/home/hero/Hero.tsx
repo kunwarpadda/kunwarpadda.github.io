@@ -157,7 +157,7 @@ export const Hero = () => {
 									}
 									variant="outline"
 								>
-									Let's Connect
+									Let&apos;s Connect
 								</StandardButton>
 							</Magnetic>
 						</div>
