@@ -1,42 +1,558 @@
+// Modern About Section - Hero-style layout with full width
 .about {
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 2.4rem;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 8vw, 10rem);
+  position: relative;
+  overflow: hidden;
 
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
+  @media (max-width: 768px) {
+    gap: clamp(4rem, 8vw, 6rem);
   }
 }
 
-.aboutText {
-  margin-bottom: 2.4rem;
-  font-weight: 200;
+// Hero-style Introduction Section
+.intro {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+  margin-top: var(--space-3xl);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(ellipse, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
 }
 
-.links {
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
+.headline {
+  font-size: clamp(2.24rem, 4.2vw, 3.78rem);
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: var(--space-2xl);
+  color: var(--text);
+  position: relative;
+  letter-spacing: -0.02em;
+  
+  // Enhanced typography
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-variation-settings: "wght" 800;
+  
+  @media (max-width: 768px) {
+    font-size: clamp(2.4rem, 7vw, 3.2rem);
+    margin-bottom: var(--space-xl);
+    line-height: 1.2;
+  }
 }
 
-.linksText {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-
-  font-size: var(--text-sm);
+.highlight {
   color: var(--brand);
+  position: relative;
+  background: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease-in-out infinite;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--brand-gradient);
+    opacity: 0.4;
+    border-radius: var(--radius-sm);
+    animation: highlightPulse 3s ease-in-out infinite;
+  }
 }
 
-.highlightFirstLetter:first-letter {
-  background: var(--background-light);
-  padding: 1rem;
-  border-radius: 0.4rem;
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
 
+@keyframes highlightPulse {
+  0%, 100% { opacity: 0.4; transform: scaleX(1); }
+  50% { opacity: 0.8; transform: scaleX(1.05); }
+}
+
+.description {
+  font-size: clamp(calc(var(--text-md) * 0.7), calc(2.5vw * 0.7), calc(var(--text-lg) * 0.7));
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0 auto;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+
+  strong {
+    color: var(--brand);
+    font-weight: 600;
+    background: var(--brand-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media (max-width: 768px) {
+    font-size: var(--text-md);
+    line-height: 1.6;
+  }
+}
+
+// Metrics Section - Redesigned for impact
+.metrics {
+  display: flex;
+  gap: var(--space-2xl);
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+  position: relative;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    padding: 0 var(--space-lg);
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 var(--space-md);
+  }
+}
+
+.metric {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-2xl);
+  border-radius: var(--radius-2xl);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  
+  // Enhanced gradient border effect
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--brand-gradient);
+    transform: scaleX(0);
+    transition: transform var(--transition-smooth);
+    transform-origin: left;
+  }
+
+  &:hover {
+    background: rgba(26, 26, 26, 0.9);
+    border-color: rgba(0, 212, 255, 0.4);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: var(--shadow-brand-lg);
+    
+    &::before {
+      transform: scaleX(1);
+    }
+
+    &::after {
+      opacity: 0.6;
+      transform: translateY(-10px);
+    }
+  }
+
+  &:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+}
+
+.metricIcon {
+  font-size: 3.2rem;
+  margin-bottom: var(--space-lg);
+  opacity: 0.9;
+  transition: all var(--transition-smooth);
+  display: inline-block;
+  
+  @media (max-width: 768px) {
+    font-size: 2.8rem;
+    margin-bottom: var(--space-md);
+  }
+}
+
+.metric:hover .metricIcon {
+  transform: scale(1.2) rotate(5deg);
+  opacity: 1;
+  filter: drop-shadow(0 0 10px var(--brand));
+}
+
+.metricNumber {
+  font-size: clamp(3.2rem, 5vw, 4.8rem);
+  font-weight: 900;
+  color: var(--brand);
+  margin-bottom: var(--space-md);
+  line-height: 1;
+  background: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+
+  @media (max-width: 768px) {
+    font-size: clamp(2.8rem, 6vw, 3.2rem);
+    margin-bottom: var(--space-sm);
+  }
+}
+
+.metricDescription {
   font-size: var(--text-md);
-  font-weight: bold;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  
+  @media (max-width: 768px) {
+    font-size: var(--text-sm);
+  }
+}
 
-  margin-right: 0.6rem;
+// Section Titles - Enhanced styling
+.sectionTitle {
+  font-size: clamp(var(--text-lg), 3.5vw, var(--text-xl));
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: var(--space-3xl);
+  text-align: center;
+  position: relative;
+  letter-spacing: -0.01em;
+  font-family: 'Inter', sans-serif;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--brand-gradient);
+    border-radius: var(--radius-sm);
+    animation: titleUnderline 2s ease-in-out infinite alternate;
+  }
 
-  float: left;
+  @media (max-width: 768px) {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-2xl);
+    
+    &::before {
+      width: 60px;
+      height: 3px;
+      bottom: -16px;
+    }
+  }
+}
+
+// Technology Section - Enhanced layout
+.techSection {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+
+  @media (max-width: 768px) {
+    padding: 0 var(--space-lg);
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 var(--space-md);
+  }
+}
+
+.techGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    gap: var(--space-md);
+  }
+  
+  @media (max-width: 480px) {
+    gap: var(--space-sm);
+  }
+}
+
+// Philosophy Section - Enhanced design
+.philosophy {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+
+  @media (max-width: 768px) {
+    padding: 0 var(--space-lg);
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 var(--space-md);
+  }
+}
+
+.philosophyContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--space-3xl);
+  margin-top: var(--space-3xl);
+  padding: var(--space-2xl);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    margin-top: var(--space-2xl);
+  }
+
+  @media (max-width: 480px) {
+    gap: var(--space-xl);
+  }
+}
+
+.philosophyItem {
+  padding: var(--space-3xl) var(--space-2xl);
+  border-radius: var(--radius-2xl);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  
+  // Enhanced gradient border effect
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--brand-gradient);
+    transform: scaleX(0);
+    transition: transform var(--transition-smooth);
+    transform-origin: left;
+  }
+
+  &:hover {
+    background: rgba(26, 26, 26, 0.9);
+    border-color: rgba(0, 212, 255, 0.4);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: var(--shadow-brand-lg);
+    
+    &::before {
+      transform: scaleX(1);
+    }
+
+    &::after {
+      opacity: 0.7;
+      transform: translateY(-8px);
+    }
+  }
+
+  &:nth-child(1) {
+    &::after {
+      animation-delay: 0s;
+    }
+  }
+
+  &:nth-child(2) {
+    &::after {
+      animation-delay: 2.5s;
+    }
+  }
+
+  &:nth-child(3) {
+    &::after {
+      animation-delay: 5s;
+    }
+  }
+
+  h4 {
+    font-size: clamp(var(--text-md), 2.5vw, var(--text-lg));
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    background: var(--brand-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    &::before {
+      content: '◆';
+      font-size: 1rem;
+      opacity: 0.8;
+      color: var(--brand);
+      -webkit-text-fill-color: var(--brand);
+      background: none;
+    }
+  }
+
+  p {
+    font-size: var(--text-md);
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  @media (max-width: 768px) {
+    padding: var(--space-2xl) var(--space-xl);
+    text-align: center;
+    
+    h4 {
+      font-size: var(--text-md);
+      justify-content: center;
+      margin-bottom: var(--space-md);
+    }
+    
+    p {
+      font-size: var(--text-sm);
+      line-height: 1.6;
+    }
+  }
+}
+
+// Enhanced Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  33% { 
+    transform: translateY(-8px) rotate(120deg);
+    opacity: 0.7;
+  }
+  66% { 
+    transform: translateY(-4px) rotate(240deg);
+    opacity: 0.5;
+  }
+}
+
+@keyframes titleUnderline {
+  0% { 
+    opacity: 0.6; 
+    transform: translateX(-50%) scaleX(0.8);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateX(-50%) scaleX(1.1);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Animation classes with staggered delays
+.intro {
+  animation: fadeInUp 1s ease-out;
+}
+
+.metrics {
+  animation: slideInFromLeft 1s ease-out 0.3s both;
+}
+
+.techSection {
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.philosophy {
+  animation: slideInFromRight 1s ease-out 0.9s both;
+}
+
+// Staggered animation for metric cards
+.metric:nth-child(1) {
+  animation: scaleIn 0.8s ease-out 0.5s both;
+}
+
+.metric:nth-child(2) {
+  animation: scaleIn 0.8s ease-out 0.7s both;
+}
+
+.metric:nth-child(3) {
+  animation: scaleIn 0.8s ease-out 0.9s both;
+}
+
+// Staggered animation for philosophy items
+.philosophyItem:nth-child(1) {
+  animation: fadeInUp 0.8s ease-out 1.1s both;
+}
+
+.philosophyItem:nth-child(2) {
+  animation: fadeInUp 0.8s ease-out 1.3s both;
+}
+
+.philosophyItem:nth-child(3) {
+  animation: fadeInUp 0.8s ease-out 1.5s both;
 }

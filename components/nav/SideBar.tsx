@@ -3,7 +3,7 @@ import styles from "./sidebar.module.scss";
 import { motion } from "framer-motion";
 
 export const SideBar = () => {
-	const [selected, setSelected] = useState("");
+	const [selected, setSelected] = useState("about");
 
 	useEffect(() => {
 		const sections = document.querySelectorAll(".section-wrapper");
@@ -23,6 +23,11 @@ export const SideBar = () => {
 		const observer = new IntersectionObserver(callback, options);
 
 		sections.forEach((section) => observer.observe(section));
+
+		// Cleanup observer on unmount
+		return () => {
+			sections.forEach((section) => observer.unobserve(section));
+		};
 	}, []);
 
 	return (
@@ -39,9 +44,8 @@ export const SideBar = () => {
 				<span
 					className={styles.logo}
 					onClick={() => {
-						document.location.hash === ""
-							? document.getElementById("main")?.scrollIntoView()
-							: (document.location.hash = "");
+						window.scrollTo({ top: 0, behavior: 'smooth' });
+						setSelected("about"); // Set to about since it's the first section
 					}}
 				>
 					KP<span>.</span>
@@ -49,7 +53,7 @@ export const SideBar = () => {
 				<motion.a
 					initial={{ x: -70 }}
 					animate={{ x: 0 }}
-					transition={{ duration: 0.5, delay: 0.1 }}
+					transition={{ duration: 0.5, delay: 0.0 }}
 					href="#about"
 					onClick={() => {
 						setSelected("about");
@@ -61,7 +65,7 @@ export const SideBar = () => {
 				<motion.a
 					initial={{ x: -70 }}
 					animate={{ x: 0 }}
-					transition={{ duration: 0.5, delay: 0.2 }}
+					transition={{ duration: 0.5, delay: 0.1 }}
 					href="#projects"
 					onClick={() => setSelected("projects")}
 					className={selected === "projects" ? styles.selected : ""}
@@ -71,7 +75,7 @@ export const SideBar = () => {
 				<motion.a
 					initial={{ x: -70 }}
 					animate={{ x: 0 }}
-					transition={{ duration: 0.5, delay: 0.4 }}
+					transition={{ duration: 0.5, delay: 0.2 }}
 					href="#contact"
 					onClick={() => setSelected("contact")}
 					className={selected === "contact" ? styles.selected : ""}

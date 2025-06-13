@@ -14,6 +14,7 @@ interface Props {
 	tech: string[];
 	title: string;
 	code: string;
+	technicalDetails: string[];
 }
 
 export const Project = ({
@@ -24,6 +25,7 @@ export const Project = ({
 	title,
 	code,
 	tech,
+	technicalDetails,
 }: Props) => {
 	const [hovered, setHovered] = useState(false);
 
@@ -53,61 +55,71 @@ export const Project = ({
 				initial="hidden"
 				animate={controls}
 				transition={{ duration: 0.75 }}
+				className={styles.project}
 			>
-				<div
+				<div className={styles.projectContent}>
+					<div className={styles.projectHeader}>
+						<Reveal>
+							<h3 className={styles.projectTitle}>{title}</h3>
+						</Reveal>
+						
+						<Reveal>
+							<div className={styles.techStack}>
+								{tech.map((item) => (
+									<span key={item} className={styles.techChip}>
+										{item}
+									</span>
+								))}
+							</div>
+						</Reveal>
+						
+						<Reveal>
+							<p className={styles.projectDescription}>
+								{description}
+							</p>
+						</Reveal>
+					</div>
+
+					<div className={styles.technicalImplementation}>
+						<Reveal>
+							<h4 className={styles.sectionTitle}>Technical Implementation</h4>
+						</Reveal>
+						
+						<Reveal>
+							<ul className={styles.technicalList}>
+								{technicalDetails.map((detail, index) => (
+									<li key={index} className={styles.technicalItem}>
+										<span className={styles.arrow}>▹</span>
+										{detail}
+									</li>
+								))}
+							</ul>
+						</Reveal>
+					</div>
+				</div>
+
+				<div 
+					className={styles.projectImageContainer}
 					onMouseEnter={() => setHovered(true)}
 					onMouseLeave={() => setHovered(false)}
 					onClick={() => setIsOpen(true)}
-					className={styles.projectImage}
 				>
-					<Image
-						priority
-						src={imgSrc}
-						alt={`An image of the ${title} project.`}
-						width={500}
-						height={180}
-						style={{
-							width: hovered
-								? "90% !important"
-								: "85% !important",
-							rotate: hovered ? "2deg" : "0deg",
-						}}
-					/>
-				</div>
-				<div className={styles.projectCopy}>
-					<Reveal width="100%">
-						<div className={styles.projectTitle}>
-							<h4>{title}</h4>
-							<div className={styles.projectTitleLine} />
-
-							<Link href={code} target="_blank" rel="nofollow">
-								<AiFillGithub size="2.8rem" />
-							</Link>
-
-							<Link
-								href={projectLink}
-								target="_blank"
-								rel="nofollow"
-							>
-								<AiOutlineExport size="2.8rem" />
-							</Link>
-						</div>
-					</Reveal>
-					<Reveal>
-						<div className={styles.projectTech}>
-							{tech.join(" - ")}
-						</div>
-					</Reveal>
-					<Reveal>
-						<p className={styles.projectDescription}>
-							{description} <br />
-							<span onClick={() => setIsOpen(true)}>
-								Learn more {">"}
-							</span>
-						</p>
-					</Reveal>
+					<div className={styles.projectImage}>
+						<Image
+							priority
+							src={imgSrc}
+							alt={`${title} project screenshot`}
+							width={500}
+							height={300}
+							className={styles.projectImg}
+							style={{
+								transform: hovered ? "scale(1.05)" : "scale(1)",
+							}}
+						/>
+					</div>
 				</div>
 			</motion.div>
+			
 			<ProjectModal
 				modalContent={modalContent}
 				projectLink={projectLink}

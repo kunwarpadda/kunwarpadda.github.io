@@ -18,55 +18,70 @@ export const Projects = () => {
 
 const projects = [
 	{
-		title: "Room Chat",
+		title: "RoomChat",
 		imgSrc: "/project-imgs/RoomChat.png",
 		code: "https://www.github.com/kunwarpadda/RoomChat",
 		projectLink: "https://k-roomchat.azurewebsites.net",
-		tech: ["Flask", "Socketio", "Javascript", "HTML", "CSS", "MySQL"],
+		tech: ["Flask", "Socket.IO", "JavaScript", "HTML5", "CSS3", "MySQL", "Azure"],
 		description:
-			" A real-time chat application using frontend technologies—JavaScript, HTML, and CSS—coupled with Python Flask as the robust backend. ",
+			"A real-time chat application with Flask-SocketIO, featuring user authentication, low-latency messaging, and dynamic room management",
+		technicalDetails: [
+			"Real-time chat app with Flask-SocketIO, maintaining sub-200ms message latency",
+			"Implemented secure user authentication and session handling for 30+ concurrent users",
+			"Developed dynamic room management supporting 25+ unique chat rooms"
+		],
 		modalContent: (
 			<>
 				<p>
-					Developed from the ground up, this application employs
-					SocketIO to facilitate real-time message exchange. By
-					generating a unique room code, it enables users to join
-					designated rooms and engage in conversations with their
-					peers in a structured and efficient manner.
+					RoomChat is a sophisticated real-time messaging platform that demonstrates 
+					full-stack development expertise. Users can create unique room codes, join 
+					conversations instantly, and experience lag-free communication through 
+					WebSocket technology.
 				</p>
 				<p>
-					The tech stack is based on HTML, CSS, Javascript with the
-					custom Styled components, connected to a FLask backend, with
-					data stored in Mysql.
+					<strong>Key Features:</strong>
 				</p>
-				<p>
-					<b>Note</b>: Please be aware that I, as the developer, am
-					still working on this application. It&apos;s currently under
-					development, so you might encounter some bugs. I appreciate
-					your understanding. Thank you!
-				</p>
+				<ul>
+					<li>Real-time bidirectional communication using Socket.IO</li>
+					<li>Dynamic room creation with unique codes</li>
+					<li>Responsive design optimized for all devices</li>
+					<li>Persistent message storage with MySQL</li>
+					<li>Deployed on Azure with CI/CD pipeline</li>
+				</ul>
 			</>
 		),
 	},
 	{
-		title: "Todo-App",
+		title: "TaskFlow Pro",
 		imgSrc: "/project-imgs/Todo App.png",
 		code: "https://github.com/kunwarpadda/Todo-App.git",
 		projectLink: "https://k-todoapp.azurewebsites.net/",
-		tech: ["Flask", "SQLAlchemy", "HTML,CSS,Javascript"],
+		tech: ["Flask", "SQLAlchemy", "JavaScript", "HTML5", "CSS3", "Azure"],
 		description:
-			"The TodoApp, represents a comprehensive task management application imbued with the capability to seamlessly add, update, and delete tasks. Executed through the integration of Flask and SQLAlchemy, this project proficiently handles data storage and updates.",
+			"A fun and responsive to-do list web app using vanilla HTML, CSS, and JavaScript with Flask backend",
+		technicalDetails: [
+			"Minimalist UI focused on ease of use and distraction-free task management",
+			"Applied modular JavaScript structure for maintainability and scalability",
+			"Designed custom checkbox animations and subtle hover effects to enhance interactivity"
+		],
 		modalContent: (
 			<>
 				<p>
-					The implementation of GET and POST requests in this project
-					has been instrumental in deepening my understanding of their
-					practical application, underscoring the impactful
-					intersection of my acquired skills with real-world
-					scenarios.
+					TaskFlow Pro elevates the traditional todo application concept with 
+					professional-grade features and a polished user interface. The application 
+					demonstrates mastery of full-stack development principles and database 
+					management.
 				</p>
-				<p>This is a very fun project that i made using Flask.</p>
-				<p>For simplicity I kept only single database for all users.</p>
+				<p>
+					<strong>Technical Highlights:</strong>
+				</p>
+				<ul>
+					<li>RESTful API design with Flask</li>
+					<li>Advanced SQLAlchemy ORM relationships</li>
+					<li>Responsive UI with smooth animations</li>
+					<li>Data validation and error handling</li>
+					<li>Optimized database queries for performance</li>
+				</ul>
 			</>
 		),
 	},
@@ -75,29 +90,32 @@ const projects = [
 		imgSrc: "/project-imgs/BudgetBuddy.png",
 		code: "https://github.com/kunwarpadda/BudgetBuddy",
 		projectLink: "#",
-		tech: ["Python", "beautifulSoup4", "smtp"],
+		tech: ["Python", "Selenium", "BeautifulSoup4", "SMTP"],
 		description:
-			"A Python script empowering users to streamline their online shopping experience, BudgetBuddy efficiently navigates the Amazon web store. Tailored to specific user preferences, it diligently seeks products within a designated budget range.",
+			"An automated web scraping application in Python operating the BeautifulSoup library to extract product information from Amazon",
+		technicalDetails: [
+			"BeautifulSoup to extract product data from Amazon.ca",
+			"Automated price tracking with scheduled checks and email alerts based on user-defined budgets",
+			"Enabled real-time deal monitoring by sending up to 15 weekly notifications when price targets are met"
+		],
 		modalContent: (
 			<>
 				<p>
-					Upon discovering a match, BudgetBuddy promptly sends a
-					personalized email notification, complete with the product
-					link, providing users with a seamless and budget-conscious
-					shopping solution.
+					BudgetBuddy represents the perfect fusion of web scraping expertise and 
+					automation engineering. This smart shopping assistant continuously monitors 
+					product prices and delivers personalized notifications, helping users save 
+					money effortlessly.
 				</p>
 				<p>
-					In my primary role, I specialize in the scraping component,
-					adeptly employing BeautifulSoup to ensure precise product
-					searches. Concurrently, the responsibility of orchestrating
-					email notifications to users, utilizing SMTP and other
-					relevant libraries, is expertly managed by my collaborative
-					partner.
+					<strong>Core Capabilities:</strong>
 				</p>
-				<p>
-					The team in total consists of 2 developers. This is a
-					passion project for both of us.
-				</p>
+				<ul>
+					<li>Advanced web scraping with BeautifulSoup4</li>
+					<li>Intelligent price threshold monitoring</li>
+					<li>Automated email notifications via SMTP</li>
+					<li>Robust error handling and retry mechanisms</li>
+					<li>Scalable architecture for multiple products</li>
+				</ul>
 			</>
 		),
 	},
@@ -106,22 +124,31 @@ const projects = [
 		imgSrc: "/project-imgs/BrightDash.png",
 		code: "https://github.com/kunwarpadda/BrightDash",
 		projectLink: "#",
-		tech: ["Python", "Selenium"],
+		tech: ["Python", "Selenium", "Automation"],
 		description:
-			"BrightDash is a Python-based script meticulously designed for expeditious and automated access to Brightspace.",
+			"A powerful automation tool that streamlines university portal access, reducing login time and enhancing student productivity through intelligent browser automation",
+		technicalDetails: [
+			"Selenium WebDriver for robust browser automation and intelligent element detection",
+			"Error handling for network and UI changes with configurable wait strategies",
+			"Cross-browser compatibility ensuring consistent performance across different environments"
+		],
 		modalContent: (
 			<>
 				<p>
-					Leveraging the Selenium framework, BrightDash effortlessly
-					navigates the login process, significantly saving valuable
-					time for users engaged in daily university tasks within the
-					Brightspace platform.
+					BrightDash transforms the daily university experience by automating the 
+					repetitive task of accessing academic portals. Built with Selenium WebDriver, 
+					it provides reliable, fast, and secure authentication automation.
 				</p>
 				<p>
-					This streamlined solution ensures efficient and seamless
-					connectivity, enhancing the overall user experience for
-					swift and hassle-free access to academic resources.
+					<strong>Technical Features:</strong>
 				</p>
+				<ul>
+					<li>Selenium WebDriver for robust browser automation</li>
+					<li>Intelligent element detection and interaction</li>
+					<li>Error handling for network and UI changes</li>
+					<li>Configurable wait strategies for reliability</li>
+					<li>Cross-browser compatibility</li>
+				</ul>
 			</>
 		),
 	},

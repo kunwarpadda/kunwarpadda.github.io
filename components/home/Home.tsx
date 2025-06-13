@@ -18,13 +18,6 @@ export const Home = () => {
 					<About />
 					<Projects />
 					<Contact />
-					<div
-						style={{
-							height: "200px",
-							background:
-								"linear-gradient(180deg, var(--background), var(--background-dark))",
-						}}
-					/>
 				</main>
 			</div>
 		</>

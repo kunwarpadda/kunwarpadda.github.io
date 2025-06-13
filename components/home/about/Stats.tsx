@@ -1,94 +1,72 @@
 import styles from "./stats.module.scss";
-import { AiFillCode, AiFillSmile } from "react-icons/ai";
+import { 
+	AiFillCode, 
+	AiFillSmile, 
+	AiFillTool, 
+	AiOutlineCloudServer,
+	AiOutlineDatabase,
+	AiOutlineMobile
+} from "react-icons/ai";
 import { Reveal } from "@/components/utils/Reveal";
 import Magnetic from "@/components/Magnetic";
 
 export const Stats = () => {
+	const skillCategories = [
+		{
+			title: "Frontend",
+			icon: AiFillCode,
+			skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3/SCSS", "Tailwind CSS"]
+		},
+		{
+			title: "Backend",
+			icon: AiOutlineCloudServer,
+			skills: ["Python", "Flask", "Node.js", "Express.js", "REST APIs", "GraphQL", "Java"]
+		},
+		{
+			title: "Database",
+			icon: AiOutlineDatabase,
+			skills: ["MySQL", "MongoDB", "PostgreSQL", "Redis", "SQLAlchemy", "Prisma"]
+		},
+		{
+			title: "DevOps & Tools",
+			icon: AiFillTool,
+			skills: ["Git/GitHub", "Docker", "Azure", "AWS", "Linux", "CI/CD", "Kubernetes"]
+		},
+		{
+			title: "Mobile & Testing",
+			icon: AiOutlineMobile,
+			skills: ["React Native", "Selenium", "Jest", "JUnit", "Cypress", "Postman"]
+		},
+		{
+			title: "Learning",
+			icon: AiFillSmile,
+			skills: ["Microservices", "GraphQL", "Blockchain", "AI/ML", "Rust", "Go"]
+		}
+	];
+
 	return (
 		<div className={styles.stats}>
-			<Reveal>
-				<div className={styles.statColumn}>
-					<h4>
-						<AiFillCode size="2.4rem" color="var(--brand)" />
-						<span>Expertise</span>
-					</h4>
-					<div className={styles.statGrid}>
-						<Magnetic>
-							<span className="chip">JavaScript</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">HTML</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">CSS</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">ReactJS</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">NodeJS</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">Git</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">Python automation</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">Selenium</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">BeautifulSoup</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">Java</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">JUnit</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">C/C++</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">SQL</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">GitHub CD/CI</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">Linux</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">Flask</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">Azure</span>
-						</Magnetic>
-					</div>
-				</div>
-			</Reveal>
-			<Reveal>
-				<div className={styles.statColumn}>
-					<h4>
-						<AiFillSmile size="2.4rem" color="var(--brand)" />
-						<span>Currently learning</span>
-					</h4>
-					<div className={styles.statGrid}>
-						<Magnetic>
-							<span className="chip">AWS</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">Django</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">MongoDB</span>
-						</Magnetic>
-						<Magnetic>
-							<span className="chip">ExpressJS</span>
-						</Magnetic>
-					</div>
-				</div>
-			</Reveal>
+			<div className={styles.statsGrid}>
+				{skillCategories.map((category, index) => (
+					<Reveal key={category.title}>
+						<div className={`${styles.statCard} ${styles[`card${index + 1}`]}`}>
+							<div className={styles.cardHeader}>
+								<div className={styles.iconWrapper}>
+									<category.icon size="2.4rem" className={styles.icon} />
+								</div>
+								<h4 className={styles.cardTitle}>{category.title}</h4>
+							</div>
+							<div className={styles.skillsGrid}>
+								{category.skills.map((skill) => (
+									<Magnetic key={skill}>
+										<span className="chip">{skill}</span>
+									</Magnetic>
+								))}
+							</div>
+						</div>
+					</Reveal>
+				))}
+			</div>
 		</div>
 	);
 };

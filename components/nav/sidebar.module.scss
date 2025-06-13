@@ -1,17 +1,12 @@
 .sideBar {
 	background: var(--background-dark);
-
+	width: 60px;
 	height: 100vh;
-
-	position: sticky;
-	top: 0px;
-	left: 0px;
-	z-index: 20;
-
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	overflow-y: scroll;
+	overflow-y: auto;
+	z-index: 20;
 
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
@@ -74,6 +69,13 @@
 		line-height: 1;
 		color: var(--brand);
 	}
+}
+
+.sideBarLayout {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	overflow: hidden;
 }
 
 .sideBar::-webkit-scrollbar {

@@ -1,9 +1,30 @@
 import styles from "./dotgrid.module.scss";
 import anime from "animejs";
+import { useEffect, useState } from "react";
 
 export const DotGrid = () => {
-  const GRID_WIDTH = 25;
-  const GRID_HEIGHT = 20;
+  const [gridDimensions, setGridDimensions] = useState({ width: 250, height: 20 });
+
+  useEffect(() => {
+    const updateGridSize = () => {
+      const parentElement = document.querySelector(`.${styles.dotGrid}`)?.parentElement;
+      if (parentElement) {
+        const { width, height } = parentElement.getBoundingClientRect();
+        const dotSize = 20; // Adjust based on your dot size
+        const spacing = 5; // Adjust based on your spacing
+        const newWidth = Math.floor(width / (dotSize + spacing));
+        const newHeight = Math.floor(height / (dotSize + spacing));
+        setGridDimensions({ width: newWidth, height: newHeight });
+      }
+    };
+
+    updateGridSize();
+    window.addEventListener('resize', updateGridSize);
+    return () => window.removeEventListener('resize', updateGridSize);
+  }, []);
+
+  const GRID_WIDTH = gridDimensions.width;
+  const GRID_HEIGHT = gridDimensions.height;
 
   const dots = [];
 
@@ -19,8 +40,8 @@ export const DotGrid = () => {
         { value: 1, easing: "easeInOutQuad", duration: 500 },
       ],
       opacity: [
-        { value: 0.7, easing: "easeOutSine", duration: 250 },
-        { value: 0.35, easing: "easeInOutQuad", duration: 500 },
+        { value: 0.35, easing: "easeOutSine", duration: 250 },
+        { value: 0.05, easing: "easeInOutQuad", duration: 500 },
       ],
       delay: anime.stagger(100, {
         grid: [GRID_WIDTH, GRID_HEIGHT],

@@ -1,26 +1,108 @@
 .stats {
-	position: relative;
+  position: sticky;
+  top: var(--space-2xl);
+  height: fit-content;
 }
 
-.statColumn {
-	h4 {
-		display: flex;
-		align-items: center;
-
-		margin-bottom: 2.4rem;
-		span {
-			font-size: var(--text-md);
-			font-weight: bold;
-			position: relative;
-			margin-left: 0.8rem;
-		}
-	}
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    position: static;
+  }
 }
 
-.statGrid {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 1.2rem;
+.statCard {
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--brand-gradient);
+    transform: scaleX(0);
+    transition: transform var(--transition-smooth);
+  }
+  
+  &:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-brand-lg);
+    border-color: rgba(0, 212, 255, 0.4);
+    
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
 
-	margin-bottom: 4.8rem;
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--brand-gradient);
+  border-radius: var(--radius-md);
+  
+  .icon {
+    color: var(--background);
+  }
+}
+
+.cardTitle {
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* Individual card animations */
+.card1 {
+  animation-delay: 0.1s;
+}
+
+.card2 {
+  animation-delay: 0.2s;
+}
+
+.card3 {
+  animation-delay: 0.3s;
+}
+
+.card4 {
+  animation-delay: 0.4s;
+}
+
+.card5 {
+  animation-delay: 0.5s;
+}
+
+.card6 {
+  animation-delay: 0.6s;
 }
