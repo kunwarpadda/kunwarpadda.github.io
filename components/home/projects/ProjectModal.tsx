@@ -1,11 +1,12 @@
 import styles from "./projectmodal.module.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { AiFillGithub, AiOutlineExport } from "react-icons/ai";
+import { AiFillGithub, AiOutlineExport, AiOutlineMail } from "react-icons/ai";
 import { MdClose } from "react-icons/md";
 import Image from "next/image";
+import { DemoRequestModal } from "./DemoRequestModal";
 interface Props {
 	isOpen: boolean;
 	setIsOpen: Function;
@@ -15,6 +16,7 @@ interface Props {
 	projectLink: string;
 	tech: string[];
 	modalContent: JSX.Element;
+	demoRequest?: boolean;
 }
 
 export const ProjectModal = ({
@@ -26,7 +28,10 @@ export const ProjectModal = ({
 	title,
 	code,
 	tech,
+	demoRequest = false,
 }: Props) => {
+	const [isDemoRequestOpen, setIsDemoRequestOpen] = useState(false);
+
 	useEffect(() => {
 		const body = document.querySelector("body");
 
@@ -44,44 +49,80 @@ export const ProjectModal = ({
 			</button>
 
 			<motion.div
-				initial={{ y: 100, opacity: 0 }}
-				animate={{ y: 0, opacity: 1 }}
+				initial={{ y: 100, opacity: 0, scale: 0.9 }}
+				animate={{ y: 0, opacity: 1, scale: 1 }}
+				exit={{ y: 100, opacity: 0, scale: 0.9 }}
+				transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
 				onClick={(e) => e.stopPropagation()}
 				className={styles.modalCard}
 			>
-				<Image
-					priority
-					src={imgSrc}
-					alt={`An image of the ${title} project.`}
-					width={500}
-					height={400}
-					className={styles.modalImage}
-				/>
+				<div className={styles.modalImageContainer}>
+					<Image
+						priority
+						src={imgSrc}
+						alt={`An image of the ${title} project.`}
+						width={500}
+						height={400}
+						className={styles.modalImage}
+					/>
+					<div className={styles.imageOverlay} />
+				</div>
 				<div className={styles.modalContent}>
-					<h4>{title}</h4>
-					<div className={styles.modalTech}>{tech.join(" - ")}</div>
-
-					<div className={styles.suppliedContent}>{modalContent}</div>
+					<div className={styles.modalHeader}>
+						<h4>{title}</h4>
+						<div className={styles.modalTech}>
+							{tech.map((techItem, index) => (
+								<span key={index}>{techItem}</span>
+							))}
+						</div>
+					</div>
+					
+					<div className={styles.modalContentWrapper}>
+						<div className={styles.suppliedContent}>{modalContent}</div>
+					</div>
 
 					<div className={styles.modalFooter}>
 						<p className={styles.linksText}>
 							Project Links<span>.</span>
 						</p>
 						<div className={styles.links}>
-							<Link target="_blank" rel="nofollow" href={code}>
-								<AiFillGithub /> source code
-							</Link>
-							<Link
-								target="_blank"
-								rel="nofollow"
-								href={projectLink}
-							>
-								<AiOutlineExport /> live project
-							</Link>
+							{demoRequest ? (
+								<>
+									<button 
+										onClick={() => setIsDemoRequestOpen(true)}
+										className={styles.demoRequestBtn}
+									>
+										<AiOutlineMail /> Request Demo
+									</button>
+								</>
+							) : (
+								<>
+									{code && (
+										<Link target="_blank" rel="nofollow" href={code}>
+											<AiFillGithub /> Source Code
+										</Link>
+									)}
+									{projectLink && (
+										<Link
+											target="_blank"
+											rel="nofollow"
+											href={projectLink}
+										>
+											<AiOutlineExport /> Live Demo
+										</Link>
+									)}
+								</>
+							)}
 						</div>
 					</div>
 				</div>
 			</motion.div>
+			
+			<DemoRequestModal 
+				isOpen={isDemoRequestOpen}
+				setIsOpen={setIsDemoRequestOpen}
+				projectTitle={title}
+			/>
 		</div>
 	);
 

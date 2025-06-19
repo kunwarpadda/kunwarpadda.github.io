@@ -15,6 +15,8 @@ interface Props {
 	title: string;
 	code: string;
 	technicalDetails: string[];
+	index: number;
+	demoRequest?: boolean;
 }
 
 export const Project = ({
@@ -26,6 +28,8 @@ export const Project = ({
 	code,
 	tech,
 	technicalDetails,
+	index,
+	demoRequest = false,
 }: Props) => {
 	const [hovered, setHovered] = useState(false);
 
@@ -104,6 +108,10 @@ export const Project = ({
 					onMouseLeave={() => setHovered(false)}
 					onClick={() => setIsOpen(true)}
 				>
+					<div className={styles.projectNumber}>
+						{String(index + 1).padStart(2, '0')}
+					</div>
+					
 					<div className={styles.projectImage}>
 						<Image
 							priority
@@ -112,10 +120,11 @@ export const Project = ({
 							width={500}
 							height={300}
 							className={styles.projectImg}
-							style={{
-								transform: hovered ? "scale(1.05)" : "scale(1)",
-							}}
 						/>
+						
+						<div className={styles.clickIndicator}>
+							Click to view details
+						</div>
 					</div>
 				</div>
 			</motion.div>
@@ -129,6 +138,7 @@ export const Project = ({
 				title={title}
 				code={code}
 				tech={tech}
+				demoRequest={demoRequest}
 			/>
 		</>
 	);
