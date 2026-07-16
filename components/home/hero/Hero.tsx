@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { StandardButton } from "@/components/buttons/StandardButton";
+import { contactMailto } from "@/components/utils/contact";
 import styles from "./hero.module.scss";
 
 const disciplines = [
@@ -46,7 +47,9 @@ export const Hero = () => {
 						Explore my work
 					</StandardButton>
 					<StandardButton
-						onClick={() => document.getElementById("contact")?.scrollIntoView()}
+						onClick={() => {
+							window.location.href = contactMailto;
+						}}
 						variant="outline"
 					>
 						Get in touch

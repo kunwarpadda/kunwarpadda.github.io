@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/utils/Reveal";
+import { contactMailto } from "@/components/utils/contact";
 import styles from "./contact.module.scss";
 import { AiFillMail } from "react-icons/ai";
 import Link from "next/link";
@@ -18,7 +19,7 @@ export const Contact = () => {
 					</p>
 				</Reveal>
 				<Reveal>
-					<Link href="mailto:kunwarpadda46@gmail.com">
+					<Link href={contactMailto}>
 						<div className={styles.contactEmail}>
 							<AiFillMail size="2.4rem" />
 							<span>Get In Touch</span>
