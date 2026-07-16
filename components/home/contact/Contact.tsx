@@ -2,7 +2,6 @@ import { Reveal } from "@/components/utils/Reveal";
 import styles from "./contact.module.scss";
 import { AiFillMail } from "react-icons/ai";
 import Link from "next/link";
-import Magnetic from "@/components/Magnetic";
 
 export const Contact = () => {
 	return (
@@ -15,17 +14,15 @@ export const Contact = () => {
 				</Reveal>
 				<Reveal>
 					<p className={styles.contactCopy}>
-						Ready to bring your ideas to life? Drop me a line and let&apos;s discuss your project.
+						I&apos;m interested in systems, product engineering, developer tools, and geospatial work where the implementation and the evidence both matter.
 					</p>
 				</Reveal>
 				<Reveal>
 					<Link href="mailto:kunwarpadda46@gmail.com">
-						<Magnetic>
-							<div className={styles.contactEmail}>
-								<AiFillMail size="2.4rem" />
-								<span>Get In Touch</span>
-							</div>
-						</Magnetic>
+						<div className={styles.contactEmail}>
+							<AiFillMail size="2.4rem" />
+							<span>Get In Touch</span>
+						</div>
 					</Link>
 				</Reveal>
 			</div>

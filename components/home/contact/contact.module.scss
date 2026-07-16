@@ -1,18 +1,20 @@
 .contactWrapper {
-	max-width: 700px;
-	margin: auto;
-	text-align: center;
-	border-radius: var(--radius-lg);
+	max-width: 900px;
+	margin: 8rem auto 4rem;
+	padding-top: 6rem;
+	text-align: left;
+	border-top: 1px solid var(--border-strong);
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 }
 
 .contactTitle {
 	font-size: var(--text-2xl);
-	text-align: center;
-	font-weight: 900;
-	line-height: 1;
+	text-align: left;
+	font-weight: 650;
+	line-height: 1.05;
+	letter-spacing: -0.045em;
 	margin-bottom: var(--space-lg);
 
 	span {
@@ -25,8 +27,9 @@
 }
 
 .contactCopy {
-	text-align: center;
-	font-weight: 200;
+	max-width: 65rem;
+	text-align: left;
+	font-weight: 400;
 	margin: var(--space-xl) 0;
 	color: var(--text-secondary);
 	font-size: var(--text-md);
@@ -39,18 +42,20 @@
 .contactEmail {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	gap: var(--space-md);
 	width: fit-content;
 	font-size: var(--text-md);
 	font-weight: 500;
-	margin: auto;
-	transition: color var(--transition-smooth);
+	margin: 0;
+	transition: color var(--transition-fast), border-color var(--transition-fast);
 	padding: var(--space-lg) var(--space-2xl);
-	border-radius: var(--radius-lg);
-	background: var(--background-light);
+	border: 1px solid var(--border-strong);
+	border-radius: 0;
+	background: transparent;
 
 	&:hover {
 		color: var(--brand);
+		border-color: var(--brand);
 	}
 }

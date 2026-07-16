@@ -5,15 +5,15 @@ export default function home() {
 	return (
 		<>
 			<Head>
-				<title>Kunwar Padda | Full-Stack Developer & Software Engineer</title>
+				<title>Kunwarbir Singh Padda | Systems &amp; Product Engineer</title>
 				<link rel="shortcut icon" href="/favicon.png" />
 				<meta
 					name="description"
-					content="Kunwar Padda - Passionate full-stack developer specializing in React, Python, and cloud technologies. Creating innovative web solutions and scalable applications."
+					content="Kunwarbir Singh Padda builds Neeh, an open-source digital-ink SDK, and works across production product systems, LiDAR workflows, computer vision, and empirical software research."
 				/>
 				<meta
 					name="keywords"
-					content="Kunwar Padda, Software Engineer, Full-Stack Developer, React, Python, Flask, JavaScript, Web Development, Cloud Computing, Azure, AWS"
+					content="Kunwarbir Singh Padda, Neeh SDK, Software Engineer, Product Engineer, Digital Ink, Python, C++, TypeScript, LiDAR, Geospatial, Computer Vision"
 				/>
 				<meta
 					name="viewport"
@@ -21,11 +21,11 @@ export default function home() {
 				/>
 				<meta
 					property="og:title"
-					content="Kunwar Padda | Full-Stack Developer & Software Engineer"
+					content="Kunwarbir Singh Padda | Systems & Product Engineer"
 				/>
 				<meta
 					property="og:description"
-					content="Passionate full-stack developer creating innovative web solutions with modern technologies. Let's build something amazing together!"
+					content="Open-source digital ink, production product systems, LiDAR workflows, computer vision, and empirical software research."
 				/>
 				<meta
 					property="og:image"
@@ -40,8 +40,8 @@ export default function home() {
 					content="website"
 				/>
 				<meta name="twitter:card" content="summary_large_image" />
-				<meta name="twitter:title" content="Kunwar Padda | Full-Stack Developer" />
-				<meta name="twitter:description" content="Creating innovative web solutions with modern technologies" />
+				<meta name="twitter:title" content="Kunwarbir Singh Padda | Systems & Product Engineer" />
+				<meta name="twitter:description" content="Building Neeh and working across production systems, LiDAR, computer vision, and software research." />
 				<meta name="twitter:image" content="/profile.png" />
 				<link rel="canonical" href="https://kunwarpadda.github.io" />
 			</Head>

@@ -1,6 +1,5 @@
 import { MouseEventHandler } from "react";
 import styles from "./standardbutton.module.scss";
-import Magnetic from "@/components/Magnetic";
 
 interface Props {
 	children: string | JSX.Element;
@@ -14,10 +13,8 @@ export const StandardButton = ({ children, onClick, variant = "primary" }: Props
 		: styles.standardButton;
 		
 	return (
-		<Magnetic>
-			<button onClick={onClick} className={buttonClass}>
-				{children}
-			</button>
-		</Magnetic>
+		<button onClick={onClick} className={buttonClass}>
+			{children}
+		</button>
 	);
 };

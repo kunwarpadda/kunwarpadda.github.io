@@ -10,7 +10,7 @@
   top: 0;
   z-index: 20;
   background: var(--bg-opaque);
-  backdrop-filter: blur(12px);
+	border-bottom: 1px solid var(--border);
 
   font-size: var(--text-md);
   font-weight: bold;

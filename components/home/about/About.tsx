@@ -1,97 +1,106 @@
-import { MyLinks } from "@/components/nav/components/MyLinks";
 import { Reveal } from "@/components/utils/Reveal";
 import { SectionHeader } from "@/components/utils/SectionHeader";
 import styles from "./about.module.scss";
-import Magnetic from "@/components/Magnetic";
+
+const technologies = [
+	"Python",
+	"C++",
+	"C",
+	"TypeScript",
+	"React Native",
+	"Node.js",
+	"PostgreSQL",
+	"Redis",
+	"Docker",
+	"CMake",
+	"GitHub Actions",
+	"LiDAR",
+	"Point Clouds",
+	"PyTorch",
+];
+
+const focusAreas = [
+	{
+		metric: "SDK",
+		description: "Developer tools with stable interfaces, validation, and reproducible evidence",
+	},
+	{
+		metric: "Systems",
+		description: "Mobile, backend, data, and operational paths considered as one product",
+	},
+	{
+		metric: "Spatial",
+		description: "LiDAR, point-cloud quality control, and Python geospatial workflows",
+	},
+];
 
 export const About = () => {
-	const technologies = [
-		"TypeScript", "JavaScript", "PHP", "Python", "React", "Next.js", 
-		"Vue.js", "Laravel", "Node.js", "PostgreSQL", "Redis", "Tailwind", 
-		"Docker", "Git", "AWS", "MongoDB", "Express.js"
-	];
-
-	const achievements = [
-		{
-			metric: "70%",
-			description: "Response time reduction through database optimization",
-			icon: "⚡"
-		},
-		{
-			metric: "100k+",
-			description: "Daily transactions in real-time inventory system",
-			icon: "📊"
-		},
-		{
-			metric: "6x",
-			description: "Faster translations with smart caching architecture",
-			icon: "🚀"
-		}
-	];
-
 	return (
 		<section id="about" className="section-wrapper">
 			<SectionHeader title="About" dir="l" />
 			<div className={styles.about}>
-				{/* Main Introduction */}
 				<Reveal>
 					<div className={styles.intro}>
 						<h2 className={styles.headline}>
-							I&apos;m a <span className={styles.highlight}>full-stack developer</span> passionate about creating 
-							performant, user-centered digital experiences that scale.
+							I&apos;m a <span className={styles.highlight}>systems and product engineer</span>{" "}
+							who likes making difficult technical work understandable, testable, and useful.
 						</h2>
 						<p className={styles.description}>
-							Currently building innovative solutions at <strong>ColdSnake Digital</strong>, where I 
-							focus on optimizing systems that handle millions of operations daily. I believe great 
-							software should be both beautiful and blazingly fast—transforming complex problems 
-							into elegant, intuitive solutions that users love.
+							My work spans the open-source <strong>Neeh SDK</strong>, production product
+							engineering, LiDAR and point-cloud workflows, computer vision, and empirical
+							software research. I&apos;m most useful where a problem crosses boundaries:
+							from native code to Python, mobile UI to backend state, or research questions
+							to reproducible analysis.
 						</p>
 					</div>
 				</Reveal>
 
-				{/* Impact Metrics */}
 				<Reveal>
 					<div className={styles.metrics}>
-						{achievements.map((achievement, index) => (
-							<div key={index} className={styles.metric}>
-								<div className={styles.metricIcon}>{achievement.icon}</div>
-								<div className={styles.metricNumber}>{achievement.metric}</div>
-								<div className={styles.metricDescription}>{achievement.description}</div>
+						{focusAreas.map((area) => (
+							<div key={area.metric} className={styles.metric}>
+								<div className={styles.metricNumber}>{area.metric}</div>
+								<div className={styles.metricDescription}>{area.description}</div>
 							</div>
 						))}
 					</div>
 				</Reveal>
 
-				{/* Technology Stack */}
 				<Reveal>
 					<div className={styles.techSection}>
-						<h3 className={styles.sectionTitle}>Technologies I work with</h3>
+						<h3 className={styles.sectionTitle}>Tools I use</h3>
 						<div className={styles.techGrid}>
-							{technologies.map((tech, index) => (
-								<Magnetic key={index}>
-									<span className="chip">{tech}</span>
-								</Magnetic>
+							{technologies.map((tech) => (
+								<span className="chip" key={tech}>{tech}</span>
 							))}
 						</div>
 					</div>
 				</Reveal>
 
-				{/* What I'm About */}
 				<Reveal>
 					<div className={styles.philosophy}>
-						<h3 className={styles.sectionTitle}>My development philosophy</h3>
+						<h3 className={styles.sectionTitle}>How I work</h3>
 						<div className={styles.philosophyContent}>
 							<div className={styles.philosophyItem}>
-								<h4>Performance First</h4>
-								<p>Every line of code I write is optimized for speed and efficiency. Users shouldn&apos;t wait for great experiences. I focus on creating applications that load fast, respond instantly, and scale seamlessly under pressure.</p>
+								<h4>Evidence before claims</h4>
+								<p>
+									Benchmarks, tests, traces, and failure cases are part of the explanation,
+									not something added after the implementation.
+								</p>
 							</div>
 							<div className={styles.philosophyItem}>
-								<h4>Clean Architecture</h4>
-								<p>Maintainable, scalable code that teams can understand and extend for years to come. I believe in writing code that tells a story—clear, purposeful, and elegant. Simplicity is the ultimate sophistication.</p>
+								<h4>Interfaces that survive real use</h4>
+								<p>
+									I care about stable contracts, explicit state, bounded work, recovery paths,
+									and the details that make systems operable.
+								</p>
 							</div>
 							<div className={styles.philosophyItem}>
-								<h4>User-Centered Design</h4>
-								<p>Technology should serve people, not the other way around. Every feature I build starts with understanding real user needs, pain points, and goals. Great software solves real problems beautifully.</p>
+								<h4>Research into product</h4>
+								<p>
+									I like moving between investigation and implementation, then folding the
+									proven seam back into a tool people can actually use.
+								</p>
 							</div>
 						</div>
 					</div>
